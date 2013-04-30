@@ -420,7 +420,7 @@ class PandaOCRApp:
   def usage(self, code, msg = ""):
     print msg
     print '''
-Usage: ./pandas-little-ocr.py [OPTIONS] files
+Usage: ./PandaOCR.py [OPTIONS] files
 
 OPTIONS:
 --------
@@ -468,18 +468,18 @@ OPTIONS:
 
 EXAMPLES:
     Grids:
-        ./PandaSLittleOCR.py -d *.jpg
-        ./PandaSLittleOCR.py -d --treshold=30 --color=6b7a8f --cell-geometry=30x30 '--empty-char=*' test/1/*.jpg
-        ./PandaSLittleOCR.py -d --treshold=50 --color=2e2e2e --cell-geometry=24x23 '--empty-char=*' test/2/*.png
-        ./PandaSLittleOCR.py -d --treshold=10 --color=ffffff --cell-geometry=36x36 '--empty-char=*' test/3/*.png
-        ./PandaSLittleOCR.py -d --treshold=40 --color=7d7d7d --cell-geometry=65x69 '--empty-char=*' test/4/*.gif
-        ./PandaSLittleOCR.py -d --treshold=40 --color=7F7F7F --cell-geometry=58x47 '--empty-char=*' test/6/*.jpg
+        ./PandaOCR.py -d *.jpg
+        ./PandaOCR.py -d --treshold=30 --color=6b7a8f --cell-geometry=30x30 '--empty-char=*' test/1/*.jpg
+        ./PandaOCR.py -d --treshold=50 --color=2e2e2e --cell-geometry=24x23 '--empty-char=*' test/2/*.png
+        ./PandaOCR.py -d --treshold=10 --color=ffffff --cell-geometry=36x36 '--empty-char=*' test/3/*.png
+        ./PandaOCR.py -d --treshold=40 --color=7d7d7d --cell-geometry=65x69 '--empty-char=*' test/4/*.gif
+        ./PandaOCR.py -d --treshold=40 --color=7F7F7F --cell-geometry=58x47 '--empty-char=*' test/6/*.jpg
 
     Captchas:
-        ./PandaSLittleOCR.py -d --treshold=40 --color=000000 --cell-geometry=34x59 '--empty-char=*' -w test/5/*.png
+        ./PandaOCR.py -d --treshold=40 --color=000000 --cell-geometry=34x59 '--empty-char=*' -w test/5/*.png
 
     Recommended:
-        ./PandaSLittleOCR.py -d -r out.csv *.jpg
+        ./PandaOCR.py -d -r out.csv *.jpg
 '''
     sys.exit(code)
 
