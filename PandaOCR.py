@@ -27,7 +27,7 @@ class PandaOCR:
   __gColor        = None
   __bColor        = None
   __aColor        = 255
-  __treshold      = None
+  __threshold     = None
 
   __cellWidth     = None
   __cellHeight    = None
@@ -48,17 +48,17 @@ class PandaOCR:
   __moveCoords    = False
 
 
-  def __init__(self, hexColor, treshold, cellGeometry, emptyChar,
+  def __init__(self, hexColor, threshold, cellGeometry, emptyChar,
                pickleFileName = "learned.pickle", percentComp = True,
                debug = True, verify = False, fixedWidth = True,
                moveCoords = False):
     self.dPrint ("Initilazing PandaOCR %x %s %d %s %s" %
-      (hexColor, cellGeometry, treshold, emptyChar, pickleFileName))
+      (hexColor, cellGeometry, threshold, emptyChar, pickleFileName))
 
     self.__setHexColor(hexColor)
     self.__setCellGeometry(cellGeometry)
 
-    self.__treshold  = treshold
+    self.__threshold = threshold
     self.__emptyChar = emptyChar
 
     self.loadPickleFile(pickleFileName)
@@ -159,7 +159,7 @@ class PandaOCR:
                    abs(self.__bColor - b),
                    abs(self.__aColor - a))
 
-        if (diff < self.__treshold):
+        if (diff < self.__threshold):
           outLine += 'X'
           found = True
           li.append((i,j))
@@ -326,7 +326,7 @@ class PandaOCRApp:
       opts, args = getopt.getopt(sys.argv[1:],
                                  "hdl:t:c:g:e:nr:vwm",
                                  ["help", "debug", "learned-file=",
-                                  "treshold=", "color=", "cell-geometry=",
+                                  "threshold=", "color=", "cell-geometry=",
                                   "empty-char=", "number-mode-comparison",
                                   "result-csv=", "verify", "variable-width",
                                   "move-coordinates"])
@@ -336,7 +336,7 @@ class PandaOCRApp:
 
     debug        = False
     pickleFile   = "learned.pickle"
-    treshold     = None
+    threshold    = None
     hexColor     = None
     cellGeometry = None
     emptyChar    = None
@@ -352,11 +352,11 @@ class PandaOCRApp:
         debug = True
       elif o in ("-l", "--learned-file"):
         pickleFile = a
-      elif o in ("-t", "--treshold"):
+      elif o in ("-t", "--threshold"):
         try:
-          treshold = int(a)
+          threshold = int(a)
         except:
-          self.usage(2, "Bad integer for option --treshold")
+          self.usage(2, "Bad integer for option --threshold")
       elif o  in ("-c", "--color"):
         try:
           hexColor = int(a, 16)
@@ -391,12 +391,12 @@ class PandaOCRApp:
       except:
         self.usage(2, "Bad integer for color")
 
-    if treshold is None:
+    if threshold is None:
       print "What is the threshold to apply on the color? (beetween 0 and 255)"
       try:
-        treshold = int(sys.stdin.readline())
+        threshold = int(sys.stdin.readline())
       except:
-        self.usage(2, "Bad integer for treshold")
+        self.usage(2, "Bad integer for threshold")
 
     if cellGeometry is None:
       print "What is the geometry of a cell in px? (ex: 30x30)"
@@ -408,11 +408,11 @@ class PandaOCRApp:
 
     if debug:
       print('-! color=(%x)' % hexColor)
-      print('-! treshold=' +  str(treshold))
+      print('-! threshold=' +  str(threshold))
       print('-! cellGeometry=(%s)' % cellGeometry)
       print('-! emptyChar=' + emptyChar)
 
-    self.__ocr = PandaOCR(hexColor, treshold, cellGeometry, emptyChar,
+    self.__ocr = PandaOCR(hexColor, threshold, cellGeometry, emptyChar,
                           pickleFile, percentComp, debug, verify,
                           fixedWidth, moveCoords)
 
@@ -435,7 +435,7 @@ OPTIONS:
         If this argument isn't given, the program will default to
         'learned.pickle'.
 
-    -t|--treshold=<number> (from 0 to 255)
+    -t|--threshold=<number> (from 0 to 255)
         This number will allow to use image where the color of the number
         isn't precise.
 
@@ -469,14 +469,14 @@ OPTIONS:
 EXAMPLES:
     Grids:
         ./PandaOCR.py -d *.jpg
-        ./PandaOCR.py -d --treshold=30 --color=6b7a8f --cell-geometry=30x30 '--empty-char=*' test/1/*.jpg
-        ./PandaOCR.py -d --treshold=50 --color=2e2e2e --cell-geometry=24x23 '--empty-char=*' test/2/*.png
-        ./PandaOCR.py -d --treshold=10 --color=ffffff --cell-geometry=36x36 '--empty-char=*' test/3/*.png
-        ./PandaOCR.py -d --treshold=40 --color=7d7d7d --cell-geometry=65x69 '--empty-char=*' test/4/*.gif
-        ./PandaOCR.py -d --treshold=40 --color=7F7F7F --cell-geometry=58x47 '--empty-char=*' test/6/*.jpg
+        ./PandaOCR.py -d --threshold=30 --color=6b7a8f --cell-geometry=30x30 '--empty-char=*' tests/1/*.jpg
+        ./PandaOCR.py -d --threshold=50 --color=2e2e2e --cell-geometry=24x23 '--empty-char=*' tests/2/*.png
+        ./PandaOCR.py -d --threshold=10 --color=ffffff --cell-geometry=36x36 '--empty-char=*' -m tests/3/*.png
+        ./PandaOCR.py -d --threshold=40 --color=7d7d7d --cell-geometry=65x69 '--empty-char=*' tests/4/*.gif
+        ./PandaOCR.py -d --threshold=40 --color=7F7F7F --cell-geometry=58x47 '--empty-char=*' tests/6/*.jpg
 
     Captchas:
-        ./PandaOCR.py -d --treshold=40 --color=000000 --cell-geometry=34x59 '--empty-char=*' -w test/5/*.png
+        ./PandaOCR.py -d --threshold=40 --color=000000 --cell-geometry=34x59 '--empty-char=*' -w tests/5/*.png
 
     Recommended:
         ./PandaOCR.py -d -r out.csv *.jpg
