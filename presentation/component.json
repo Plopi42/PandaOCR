@@ -1,0 +1,22 @@
+{
+  "name": "PandaOCR-Presentation",
+  "version": "0.1",
+  "main": "./js/impress.js",
+  "description": "Presentation of a dummy terminal based, written in Python, OCR named PandaOCR.",
+  "homepage": "https://github.com/Plopi42/PandaOCR",
+  "license" : ["http://www.gnu.org/licenses/"],
+  "main": [
+    "./js/impress.js",
+  ],
+  "keywords": [
+    "slideshow",
+    "css3",
+    "OCR",
+    "Panda",
+    "Captcha"
+  ],
+  "author": {
+    "name": "Plopi42",
+    "web": "https://github.com/Plopi42/PandaOCR"
+  }
+}

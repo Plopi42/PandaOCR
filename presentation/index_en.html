@@ -1,0 +1,319 @@
+<!doctype html>
+
+<!--
+
+    Welcome to the light side of the source, young padawan.
+
+    One step closer to learn something interesting you are...
+
+                               ____
+                            _.' :  `._
+                        .-.'`.  ;   .'`.-.
+               __      / : ___\ ;  /___ ; \      __
+             ,'_ ""=-.:__;".-.";: :".-.":__;.-="" _`,
+             :' `.t""=-.. '<@.`;_  ',@:` ..-=""j.' `;
+                  `:-.._J '-.-'L__ `-.-' L_..-;'
+                    "-.__ ;  .-"  "-.  : __.-"
+                        L ' /.======.\ ' J
+                         "-.   "__"   .-"
+                        __.l"-:_JL_;-";.__
+                     .-j/'.;  ;""""  / .'\"-.
+                   .' /:`. "-.:     .-" .';  `.
+                .-"  / ;  "-. "-..-" .-"  :    "-.
+             .+"-.  : :      "-.__.-"      ;-._   \
+             ; \  `.; ;                    : : "+. ;
+             :  ;   ; ;                    : ;  : \:
+             ;  :   ; :                    ;:   ;  :
+            : \  ;  :  ;                  : ;  /  ::
+            ;  ; :   ; :                  ;   :   ;:
+            :  :  ;  :  ;                : :  ;  : ;
+            ;\    :   ; :                ; ;     ; ;
+            : `."-;   :  ;              :  ;    /  ;
+             ;    -:   ; :              ;  : .-"   :
+             :\     \  :  ;            : \.-"      :
+              ;`.    \  ; :            ;.'_..-=  / ;
+              :  "-.  "-:  ;          :/."      .'  :
+               \         \ :          ;/  __        :
+                \       .-`.\        /t-""  ":-+.   :
+                 `.  .-"    `l    __/ /`. :  ; ; \  ;
+                   \   .-" .-"-.-"  .' .'j \  /   ;/
+                    \ / .-"   /.     .'.' ;_:'    ;
+                     :-""-.`./-.'     /    `.___.'
+                           \ `t  ._  /
+                            "-.t-._:'
+
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>PandaOCR Presentation</title>
+
+    <meta name="description" content="Presentation of a dummy terminal based, written in Python, OCR named PandaOCR." />
+    <meta name="author"      content="Romain" />
+    <link href="css/googleapis.css"   rel="stylesheet" />
+    <link href="css/style-en.css" rel="stylesheet" />
+
+    <link rel="shortcut icon"    href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>Your browser <b>does not support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For a better experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+<div id="impress">
+
+<!-- 4 -->
+    <div class="step slide"
+         data-x="0"
+         data-y="-2000"
+         data-z="0"
+         data-rotate="0"
+         data-scale="1"
+         id="Title">
+        <h1>PandaOCR</h1>
+        <p style="text-align:center">A <strong>dummy</strong> terminal based <strong>OCR</strong> written in Python.</p>
+
+        <span class="footnote">06/07/2013 by Panda at SSTIC</span>
+    </div>
+
+    <div class="step slide"
+         data-x="1000"
+         data-y="-2000"
+         data-z="0"
+         data-rotate="0"
+         data-scale="1"
+         id="Why-dummy">
+        <h2>Why a dummy OCR?</h2>
+        <q>For <strong>dummy images</strong> such as:</q>
+        <ul>
+          <li>Virtual digit keyboards;</li>
+          <li>Bad captchas.</li>
+        </ul>
+        <table class="centeredTable" style="margin:50px auto auto auto">
+          <tbody>
+            <tr><td><img src="../tests/2/1.png" /></td><td><img src="../tests/1/1.jpg" /></td></tr>
+            <tr><td><img src="../tests/4/grille_1.gif" /></td><td><img src="../tests/5/1.png" /></td></tr>
+          </tbody>
+        </table>
+    </div>
+
+    <div class="step slide"
+         data-x="0"
+         data-y="-1000"
+         data-z="0"
+         data-rotate="90"
+         data-scale="1"
+         id="Why-dummy-images">
+        <h2>Why are these images so dummy?</h2>
+        <q>The problem comes from the <strong>creation process</strong>.</q>
+        <q>These images are built from the <strong>concatenation of small images</strong> containing the wanted characters.</q>
+    </div>
+
+    <div class="step slide"
+         data-x="-1000"
+         data-y="0"
+         data-rotate="0"
+         data-scale="1"
+         id="Why-is-it-interesting">
+        <h2>Why is it interesting?</h2>
+        <q>These images are used for critical applications such as <strong>banking websites</strong>.</q>
+        <q>They assume that a simple image will stop brute force attacks.</q>
+        <q>Someone has to prove them wrong.</q>
+    </div>
+
+    <div class="step slide"
+         data-x="0"
+         data-y="0"
+         data-rotate="0"
+         data-scale="1"
+         id="Why-not-existing-tools">
+        <h2>Why not use an existing tool?</h2>
+        <q>The main problems about existing tools are:</q>
+        <ul>
+          <li>They are not scriptable;</li>
+          <li>They are not able to process funny fonts;</li>
+          <li>They try to convert the edges of the grid as characters;</li>
+          <li>The lack of fun.</li>
+        </ul>
+    </div>
+
+    <div class="step slide"
+         data-x="1000"
+         data-y="0"
+         data-rotate="0"
+         data-scale="1"
+         id="Existing-tool-example">
+        <h2>Examples of existing tools</h2>
+        <table class="centeredTable" style="margin:50px auto auto auto">
+          <tbody>
+            <tr><td><img src="ressources/existing-tool-1.png" /></td><td rowspan="2"><img src="../tests/2/4.png" /></td></tr>
+            <tr><td><img src="ressources/existing-tool-2.png" /></td></tr>
+          </tbody>
+        </table>
+    </div>
+<!-- /4 -->
+
+<!-- 2 -->
+    <div class="step slide"
+         data-x="1100"
+         data-y="1500"
+         data-z="0"
+         data-rotate="90"
+         data-scale="1"
+         id="How-it-works">
+        <h2>How it works ? (1/2)</h2>
+        <p>It simply takes a chosen <strong>color</strong> (with a <strong>threshold</strong>) and the <strong>size</strong> of a cell.</p>
+        <p>It makes a <strong>map of the pixels</strong> matching the color.</p>
+        <p>Then <strong>you</strong> have to <strong>tell</strong> it what character you see.</p>
+        <p style="text-align:center;margin-top:10px"><img src="ressources/char-mapped-2.png"/></p>
+        <img src="../tests/3/1.png" style="position:relative;bottom:200px;right:-400px"/>
+    </div>
+
+    <div class="step slide"
+         data-x="1100"
+         data-y="2500"
+         data-z="0"
+         data-rotate="90"
+         data-scale="1"
+         id="How-it-works-2">
+        <h2>How it works ? (2/2)</h2>
+        <p>It <strong>learns</strong> from what you type, so you should not have to type the same character twice.</p>
+        <table class="centeredTable" style="margin:10px auto auto auto">
+          <tbody>
+            <tr><td rowspan="4"><img src="ressources/char-mapped-2-all-1.png" /></td><td><img src="../tests/3/1.png" /></td></tr>
+            <tr><td><img src="../tests/3/2.png" /></td></tr>
+            <tr><td><img src="../tests/3/3.png" /></td></tr>
+            <tr><td><img src="../tests/3/4.png" /></td></tr>
+          </tbody>
+        </table>
+    </div>
+
+    <div class="step slide"
+         data-x="1100"
+         data-y="3500"
+         data-z="0"
+         data-rotate="90"
+         data-scale="1"
+         id="Scriptable">
+        <h2>It is scriptable</h2>
+        <table class="centeredTable" style="margin:-10px auto auto auto">
+          <tbody>
+            <tr><td><img src="ressources/pseudo-code.png" /></td><td rowspan="2"><img src="../tests/4/grille_1.gif" /></td></tr>
+            <tr><td><img src="ressources/pseudo-code-3.png" /></td></tr>
+           </tbody>
+        </table>
+    </div>
+
+    <div class="step slide"
+         data-x="250"
+         data-y="3500"
+         data-z="0"
+         data-rotate="180"
+         data-scale="1"
+         id="Captchas">
+        <h2>It handles simple captchas</h2>
+        <q>Captchas are a little more tricky since there is no cell with fixed geometry.</q>
+        <q>So, I introduced an option which allows the user to specify the width for each character.</q>
+        <p style="text-align:center;margin-top:40px"><img src="../tests/5/14.png"/></p>
+     </div>
+
+    <div class="step slide"
+         data-x="0"
+         data-y="2500"
+         data-z="0"
+         data-rotate="270"
+         data-scale="1"
+         id="Captchas-2">
+        <h2>With captchas (1/2)</h2>
+        <p style="margin-top:-20px">It works just like for grids, but it asks for the <strong>width</strong> of the letter.</p>
+        <table class="centeredTable" style="margin:0px auto auto auto">
+          <tbody>
+            <tr><td rowspan="2"><img src="ressources/char-mapped-captcha-1.png" width="113.05px" height="461.55" /></td><td><img src="ressources/char-mapped-captcha-2.png" /></td></tr>
+            <tr><td><img src="../tests/5/letters/B.png" /></td></tr>
+          </tbody>
+        </table>
+    </div>
+
+    <div class="step slide"
+         data-x="-250"
+         data-y="1500"
+         data-z="0"
+         data-rotate="180"
+         data-scale="1"
+         id="Captchas-3">
+        <h2>With captchas (2/2)</h2>
+        <table class="centeredTable" style="margin:10px auto auto auto">
+          <tbody>
+            <tr><td rowspan="5"><img src="ressources/char-mapped-captcha-all.png" /></td><td><img src="../tests/5/1.png" /></td></tr>
+            <tr><td><img src="../tests/5/2.png" /></td></tr>
+            <tr><td><img src="../tests/5/3.png" /></td></tr>
+            <tr><td><img src="../tests/5/4.png" /></td></tr>
+          </tbody>
+        </table>
+    </div>
+
+    <div class="step slide"
+         data-x="-1100"
+         data-y="1500"
+         data-z="0"
+         data-rotate="90"
+         data-scale="1"
+         id="MAN">
+        <h2>The MAN</h2>
+        <p style="text-align:center;margin-top:-30px"><img src="ressources/options.png" width="428px" height="500.8px" /></p>
+    </div>
+
+    <div class="step slide"
+         data-x="-1100"
+         data-y="2500"
+         data-z="0"
+         data-rotate="90"
+         data-scale="1"
+         id="Released">
+        <h2>It is released</h2>
+        <q>You can find the <strong>source code</strong>, the <strong>examples</strong> and this <strong>presentation</strong> at:</q>
+        <p style="margin:30px auto 40px auto;text-align:center"><a href="https://github.com/Plopi42/PandaOCR" target="#">https://github.com/Plopi42/PandaOCR</a></p>
+
+        <q>If you liked the <strong>slides</strong>:</q>
+        <p style="margin:30px auto auto auto;text-align:center"><a href="https://github.com/bartaz/impress.js" target="#">https://github.com/bartaz/impress.js</a></p>
+    </div>
+
+    <div class="step slide"
+         data-x="-1100"
+         data-y="3500"
+         data-z="0"
+         data-rotate="90"
+         data-scale="1"
+         id="Questions">
+        <h2>Questions ?</h2>
+        <q>For any question I could not answer, here is a universal answer:</q>
+        <p style="margin:50px auto auto auto;text-align:center"><a href="#/overview">Click here</a></p>
+    </div>
+<!-- /2 -->
+
+    <div id="overview" class="step"
+         data-x="000"
+         data-y="800"
+         data-rotate="90"
+         data-scale="5">
+    </div>
+
+</div>
+
+<div class="hint">
+    <p>Use the spacebar or arrow keys to navigate</p>
+</div>
+<script>
+if ("ontouchstart" in document.documentElement) {
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
+
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+</body>
+</html>
