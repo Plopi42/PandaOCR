@@ -42,7 +42,7 @@ class PandaOCR:
   __minCoords     = 10
   __cropBorder    = 4
 
-  __debug         = True
+  __debug         = False
   __verify        = False
   __fixedWidth    = True
   __moveCoords    = False
