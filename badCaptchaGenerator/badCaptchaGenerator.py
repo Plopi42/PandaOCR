@@ -64,12 +64,17 @@ def simpleCaptcha(im):
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         print "Error: Not enough parameters !"
-        print "Usage: %s <1|2> <generatedfilename>" % sys.argv[0]
+        print "Usage: %s <1|2> <generatedfilename> [<captchatext>]" % sys.argv[0]
         sys.exit(2)
 
     im   = createImage(240, 80)
-    text = generateText()
-    print "Generated: %s" % text
+
+    text = ""
+    if len(sys.argv) > 3:
+        text = sys.argv[3][0:8]
+    else:
+        text = generateText()
+        print "Generated: %s" % text
 
     if sys.argv[1] == "1":
         simpleCaptcha(im)
