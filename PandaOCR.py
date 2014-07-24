@@ -23,51 +23,32 @@ except:
 
 
 class PandaOCR:
-  __rColor        = None
-  __gColor        = None
-  __bColor        = None
   __aColor        = 255
-  __threshold     = None
-
-  __cellWidth     = None
-  __cellHeight    = None
-
-  __emptyChar     = None
-
-  __pickleFile    = None
-  __learnedList   = []
-
-  __percentComp   = True
   __appendTrigger = 950
   __minCoords     = 10
   __cropBorder    = 4
-
-  __debug         = False
-  __verify        = False
-  __fixedWidth    = True
-  __moveCoords    = False
 
 
   def __init__(self, hexColor, threshold, cellGeometry, emptyChar,
                pickleFileName = "learned.pickle", percentComp = True,
                debug = True, verify = False, fixedWidth = True,
                moveCoords = False):
+    self.__learnedList = []
+    self.__threshold   = threshold
+    self.__emptyChar   = emptyChar
+    self.__percentComp = percentComp
+    self.__debug       = debug
+    self.__verify      = verify
+    self.__fixedWidth  = fixedWidth
+    self.__moveCoords  = moveCoords
+
     self.dPrint ("Initilazing PandaOCR %x %s %d %s %s" %
       (hexColor, cellGeometry, threshold, emptyChar, pickleFileName))
 
     self.__setHexColor(hexColor)
     self.__setCellGeometry(cellGeometry)
 
-    self.__threshold = threshold
-    self.__emptyChar = emptyChar
-
     self.loadPickleFile(pickleFileName)
-
-    self.__percentComp = percentComp
-    self.__debug       = debug
-    self.__verify      = verify
-    self.__fixedWidth  = fixedWidth
-    self.__moveCoords  = moveCoords
 
 
   def __setHexColor(self, hexColor):
@@ -316,9 +297,10 @@ class PandaOCR:
 
 
 class PandaOCRApp:
-  __ocr = None
-  __resultCsv = None
-  __files = None
+  def __init__(self):
+    self.__ocr       = None
+    self.__resultCsv = None
+    self.__files     = None
 
 
   def getOpt(self):
